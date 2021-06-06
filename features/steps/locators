@@ -1,0 +1,23 @@
+#locators for use in script for amazon create account
+logo_locator = driver.find_element(By.XPATH, "//i[@class='a-icon a-icon-logo']").text
+
+create_account_header = driver.find_element(By.XPATH, "//h1[@class='a-spacing-small']")
+
+name_input = driver.find_element(By.ID, 'ap_customer_name').send_keys('test_name')
+
+email_input = driver.find_element(By.ID, 'ap_email').send_keys('testaccount@gmail.com')
+
+password_input = driver.find_element(By.ID, 'ap_password').send_keys('*123@abc')
+
+renter_password_input = driver.find_element(By.ID, 'ap_password_check').send_keys('*123@abc')
+
+create_account = driver.find_element(By.ID, 'continue').click('')
+
+account_conditions_locator = driver.find_element(By.LINK_TEXT, '/gp/help/customer/display.html/ref=ap_register_notification_condition_of_use?ie=UTF8&nodeId=508088').click()
+
+create_account_privacy_policy_locator = driver.find_element(By.LINK_TEXT, '/gp/help/customer/display.html/ref=ap_register_notification_privacy_notice?ie=UTF8&nodeId=468496').click()
+
+create_account_sign_in_locator = driver.find_element(By.XPATH, "//a[@class='a-link-emphasis']")
+
+
+
