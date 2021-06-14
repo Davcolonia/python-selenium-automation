@@ -11,11 +11,9 @@ driver.implicitly_wait(5)
 
 # open the url
 driver.get('https://www.amazon.com/gp/help/customer/display.html')
-actual_result = driver.find_element(By.ID,'helpsearch').send_keys('Cancel order', Keys.ENTER)
-
-print(f'Actual result: {actual_result}')
-# @LANA What would our expected result be in for this case? would it be None?
-expected_result = '"Cancel order"'
+driver.find_element(By.ID,'helpsearch').send_keys('Cancel order', Keys.ENTER)
+actual_text = driver.find_element(By.XPATH, "//div[@class='help-content']//h1").text
+expected_result = 'Cancel Items or Orders'
 
 # wait for 4 sec
 sleep(4)
@@ -23,5 +21,5 @@ sleep(4)
 # click search
 
 # verify
-assert expected_result == actual_result, f'Expected {expected_result}, but got {actual_result}'
+assert expected_result == actual_text, f"Expected {expected_result}, but got {actual_text}"
 driver.quit()

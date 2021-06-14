@@ -1,6 +1,12 @@
 # Created by HDL32DA01 at 5/26/2021
-Feature: # Enter feature name here
-  # Enter feature description here
+Feature: Test Amazon search
 
-  Scenario: # Enter scenario name here
-    # Enter steps here
+  Scenario: User can search for a product
+    Given Open Amazon page
+    When Input Table in search field
+    And Click on Amazon search icon
+    Then Verify search worked
+
+    Scenario: Amazon footer has correct amount of links
+      Given Open Amazon page
+      Then Verify 48 footer links are displayed

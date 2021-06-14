@@ -14,11 +14,10 @@ def open_amazon(context):
 
 @when('User clicks cart icon')
 def click_cart(context):
-    context.driver.find_element(By.ID,'nav-cart').click()
+    context.driver.find_element(By.ID, 'nav-cart').click()
 
-@then('Verify that Your Amazon Cart is empty')
-def verify_empty_cart(context):
-    actual_result = context.driver.find_element(By.CSS_SELECTOR, 'a#nav-cart.nav-a.nav-a-2.nav-progressive-attribute').text
+@then('"{expected_text}" message is displayed')
+def verify_empty_cart(context, expected_text):
+    actual_result = context.driver.find_element(By.CSS_SELECTOR, '#sc-active-cart h2').text
     #could not get the expected result to match :/ "Assertion Failed: Expected 0 Cart, but got 0 Cart"
-    expected_result = '0 Cart'
-    assert expected_result == actual_result, f'Expected {expected_result}, but got {actual_result}'
+    assert actual_result == expected_text, f'Expected {expected_text}, but got {actual_result}'
