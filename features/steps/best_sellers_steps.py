@@ -12,7 +12,6 @@ from time import sleep
 @given('Open Amazon best sellers')
 def open_amazon(context):
     context.driver.get('https://www.amazon.com/gp/bestsellers/?ref_=nav_cs_bestsellers_8a080d3d7b55497ea1bdd97b7cff8b7b')
-
     time.sleep(5)
 
 @then('Verify best seller page {expected_links} links are displayed')

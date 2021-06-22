@@ -10,3 +10,11 @@ Feature: Test Amazon search
     Scenario: Amazon footer has correct amount of links
       Given Open Amazon page
       Then Verify 48 footer links are displayed
+
+  Scenario: User can select blouse colors
+    Given Open Amazon product B07NF7J1SH page
+    Then Verify user can click through colors
+
+    Scenario: User can browse hoodie colors
+      Given Open Amazon product B082YRMQLL page
+      Then Verify user can click through colors
