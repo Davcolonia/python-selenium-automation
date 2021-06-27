@@ -21,7 +21,12 @@ def click_cart(context):
 
 @when('Click Orders')
 def click_orders(context):
-    context.driver.find_element(By.ID, 'nav-orders').click()
+    orders_link = context.driver.find_element(By.ID, 'nav-orders')
+    print(orders_link)
+    context.driver.refresh()
+    orders_link = context.driver.find_element(By.ID, 'nav-orders')
+    print(orders_link)
+    orders_link.click()
 
 @when('Click Sign In from popup')
 def click_sign_in_btn(context):
@@ -63,4 +68,19 @@ def verify_footer_links_amount(context, expected_count):
     expected_count = int(expected_count)
     link_count = len(context.driver.find_elements(By.CSS_SELECTOR, ".navFooterDescItem a.nav_a"))
     assert link_count == expected_count, f'Expected {expected_count} links, but got {link_count}'
+
+@then('Verify Sign in popup is clickable')
+def verify_signin_popup_clickable(context):
+    context.driver.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#nav-signin-tooltip .nav-action-inner")))
+
+@when('Wait for {sec_count} sec')
+def sleep_sec(context, sec_count):
+    sleep(int(sec_count))
+
+@then('Verify sign in popup disappears')
+def verify_signin_popup_disappears(context):
+    # context.driver.wait.until(condition == True)
+    context.driver.wait.until(EC.invisibility_of_element_located((By.CSS_SELECTOR, "#nav-signin-tooltip .nav-action-inner")))
+    # context.driver.wait.until_not(condition == False)
+    # context.driver.wait.until_not(EC.visibility_of_element_located((By.CSS_SELECTOR, "#nav-signin-tooltip .nav-action-inner")))
 

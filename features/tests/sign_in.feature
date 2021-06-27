@@ -11,3 +11,11 @@ Feature: Tests for sign in page
     When Click Sign In from popup
     Then Verify Sign In page opened
 
+
+  Scenario: Sign in popup appears and disappears
+    Given Open Amazon page
+    Then Verify Sign in popup is clickable
+    When Wait for 5 sec
+    Then Verify Sign in popup is clickable
+    Then Verify sign in popup disappears
+
