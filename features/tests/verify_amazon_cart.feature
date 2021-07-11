@@ -2,7 +2,7 @@
 Feature: Test Scenarios for cart functionality
 
   Scenario: User clicks cart icon and verifies that Amazon cart is empty
-    Given Open Amazon home page
+    Given Open Amazon
     When User clicks cart icon
     Then "Your Amazon Cart is empty" message is displayed
 

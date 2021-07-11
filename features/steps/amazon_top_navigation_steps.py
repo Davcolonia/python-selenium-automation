@@ -13,7 +13,8 @@ from time import sleep, time
 
 @given('Open Amazon')
 def open_amazon(context):
-    context.driver.get('https://www.amazon.com/')
+    # context.driver.get('https://www.amazon.com/')
+    context.app.main_page.open_main()
 
 @when('Click on cart icon')
 def click_cart(context):
@@ -21,18 +22,26 @@ def click_cart(context):
 
 @when('Click Orders')
 def click_orders(context):
-    orders_link = context.driver.find_element(By.ID, 'nav-orders')
-    print(orders_link)
-    context.driver.refresh()
-    orders_link = context.driver.find_element(By.ID, 'nav-orders')
-    print(orders_link)
-    orders_link.click()
+    # orders_link = context.driver.find_element(By.ID, 'nav-orders')
+    # print(orders_link)
+    # context.driver.refresh()
+    # orders_link = context.driver.find_element(By.ID, 'nav-orders')
+    # print(orders_link)
+    # orders_link.click()
+    context.app.header.click_search()
 
 @when('Click Sign In from popup')
 def click_sign_in_btn(context):
     e = context.driver.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#nav-signin-tooltip .nav-action-inner")))
     e.click()
 
+@when('Input {search_word} in search field')
+def search_amazon(context, search_word):
+    context.app.header.input_search(search_word)
+
+@when('Click on Amazon search icon')
+def click_search(context):
+    context.app.header.click_search()
 
 @when('Search for coffee mug')
 def search_for_product(context):
@@ -84,3 +93,8 @@ def verify_signin_popup_disappears(context):
     # context.driver.wait.until_not(condition == False)
     # context.driver.wait.until_not(EC.visibility_of_element_located((By.CSS_SELECTOR, "#nav-signin-tooltip .nav-action-inner")))
 
+@then('Verify Sign In page opened')
+def verify_signin_opened(context):
+    context.app.search_results_page.verify_search_worked()
+    #context.driver.find_element(By.ID, 'ap_email')
+    #assert 'https://www.amazon.com/ap/signin' in context.driver.current_url, f'Wrong url {context.driver.current_url}'
