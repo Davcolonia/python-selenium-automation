@@ -5,13 +5,13 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 # init driver
-driver = webdriver.Chrome(executable_path='/Users/hdl32da01/python-selenium-automation/chromedriver.exe')
-driver.maximize_window()
+# driver = webdriver.Chrome(executable_path='/Users/hdl32da01/python-selenium-automation/chromedriver.exe')
+# driver.maximize_window()
 
 # implicit wait
 # checks 180 ms for web element (1/10 sec)
 # only works with find_element
-driver.implicitly_wait(4)
+# driver.implicitly_wait(4)
 
 # open the url
 driver.get('https://www.google.com/')

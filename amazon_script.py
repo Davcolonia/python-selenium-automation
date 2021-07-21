@@ -5,13 +5,13 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 # init driver
-driver = webdriver.Chrome(executable_path='/Users/hdl32da01/python-selenium-automation/chromedriver.exe')
-driver.maximize_window()
-driver.implicitly_wait(5)
+# driver = webdriver.Chrome(executable_path='/Users/hdl32da01/python-selenium-automation/chromedriver.exe')
+# driver.maximize_window()
+# driver.implicitly_wait(5)
 
 # open the url
-driver.get('https://www.amazon.com/')
-driver.find_element(By.ID,'twotabsearchtextbox').send_keys('Table')
+# driver.get('https://www.amazon.com/')
+#driver.find_element(By.ID,'twotabsearchtextbox').send_keys('Table')
 e = driver.wait.until(EC.element_to_be_clickable((By.ID, 'nav-search-submit-button')))
 e.click()
 actual_result = driver.find_element(By.XPATH, "//span[@class='a-color-state a-text-bold']").text

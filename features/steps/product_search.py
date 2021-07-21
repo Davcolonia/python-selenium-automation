@@ -10,10 +10,10 @@ SEARCH_INPUT = (By.NAME, 'q')
 SEARCH_SUBMIT = (By.NAME, 'btnK')
 
 # init driver
-driver = webdriver.Chrome(executable_path='/Users/hdl32da01/python-selenium-automation/chromedriver.exe')
-driver.maximize_window()
+# driver = webdriver.Chrome(executable_path='/Users/hdl32da01/python-selenium-automation/chromedriver.exe')
+# driver.maximize_window()
 
-driver.implicitly_wait(4)
+# driver.implicitly_wait(4)
 
 
 @given('Open Google page')

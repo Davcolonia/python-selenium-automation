@@ -7,9 +7,9 @@ from time import sleep
 #SEARCH_SUBMIT = (By.NAME, 'btnK')
 
 
-@given('Open Amazon home page')
-def open_amazon(context):
-    context.driver.get('https://www.amazon.com/')
+# @given('Open Amazon home page')
+# def open_amazon(context):
+ #   context.driver.get('https://www.amazon.com/')
     #context.app.main_page_open.open_main()
 
 

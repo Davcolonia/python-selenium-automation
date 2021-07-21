@@ -7,9 +7,9 @@ from time import sleep
 #SEARCH_SUBMIT = (By.NAME, 'btnK')
 
 
-@given('Open Amazon page')
-def open_amazon(context):
-    context.driver.get('https://www.amazon.com/')
+# @given('Open Amazon page')
+# def open_amazon(context):
+#    context.driver.get('https://www.amazon.com/')
 
 
 # @when('Input Table in search field')

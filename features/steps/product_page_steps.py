@@ -21,16 +21,19 @@ def open_amazon_product(context, product_id):
 # def verify_can_loop_thru_colors(context):
 #     expected_colors = ["Dark Navy", "Dusty Rose", "Black"]
 #     color_web_elements = context.driver.find_elements(By.CSS_SELECTOR, "#variation_color_name li")
-
-    @then('Verify user can click through colors')
-    def verify_can_loop_thru_colors(context):
-        colors = ["Black Heather/Egret Logo", "Mood Indigo Heather", "Vintage Indigo/Egret Logo", "Wolf Grey Heather"]
-        color_elements = context.driver.find_elements(By.CSS_SELECTOR, "#variation_color_name li")
-
-        for i in range(len(color_elements)):
-          color_elements[i].click()
-          actual_text = context.driver.find_element(By.CSS_SELECTOR, "#variation_color_name span.selection").text
-          assert actual_text == colors[i], f'Error, color is {actual_text}, but expected {colors[i]}'
+#
+#     @then('Verify user can click through colors')
+#     def verify_can_loop_thru_colors(context):
+#         colors = ["Black Heather/Egret Logo", "Mood Indigo Heather", "Vintage Indigo/Egret Logo", "Wolf Grey Heather"]
+#         color_elements = context.driver.find_elements(By.CSS_SELECTOR, "#variation_color_name li")
+#
+#         for i in range(len(color_elements)):
+#           color_elements[i].click()
+#           actual_text = context.driver.find_element(By.CSS_SELECTOR, "#variation_color_name span.selection").text
+#           assert actual_text == colors[i], f'Error, color is {actual_text}, but expected {colors[i]}'
+@then('Verify user can click through colors')
+def verify_can_loop_thru_colors(context):
+    context.app.product_page.verify_can_select_dress_colors()
 
     # for i in range(len(color_elements)):
     #     color_elements[i].click()
